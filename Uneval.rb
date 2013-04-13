@@ -1,6 +1,8 @@
 #
 # Don't be evil
 #
+# Artoria Seiran @ https://github.com/Artoria/Uneval
+#
 module Uneval
   module Live;          end # obj.object_id
   module Primitive;     end # obj.inspect
@@ -77,7 +79,7 @@ module Uneval
         (0...obj.size).each{|x|
           io << indent(indent) << dumpdo(obj[x], io, indent+4) << ",\n" 
         }
-        io << indent(indent) << " ]\n"
+        io << indent(indent) << " ]"
       when HashLike
         io << indent(indent) << "Hash[[\n"
         obj.keys.each{|k|
@@ -221,6 +223,4 @@ module Uneval
 end
 
 
-class Symbol
-  include Uneval::Bound
-end
+
