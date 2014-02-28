@@ -138,6 +138,10 @@ module Uneval
       @table.keys
     end
   end
+
+  class ::Struct
+     include Uneval::StructLike
+  end
   
   set_methods = lambda{|x|
     x.send :include, StructLike
