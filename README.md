@@ -4,6 +4,55 @@ Uneval
 Ruby Object Serialization in Text Script Format
 
 
+Synopsis
+========
+first:
+```ruby
+  require 'uneval' 
+```
+or copy it somewhere.
+
+```ruby
+>print Uneval.dump(3)
+3
+>print Uneval.dump("Hello world") 
+"Hello world"
+>print Uneval.dump([1,2,3])
+"[
+1,
+2,
+3,
+]"
+>print Uneval.dump({:a=>3, :b=>5})
+Hash[[
+[
+    :a,
+    3],
+[
+    :b,
+    5],
+ ]]
+>print Uneval.dump [1,2,3,{4=>5,6=>:symbol}]
+[
+    1,
+    2,
+    3,
+    Hash[[
+    [
+        4,
+        5],
+    [
+        6,
+        :symbol],
+     ]],
+ ]
+
+```
+
+
+
+
+
 Brief
 =======
 
