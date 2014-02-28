@@ -198,8 +198,8 @@ module Uneval
        def self.from_clob(text)
          Marshal.load(text.unpack('M').first)
        end
-    " if defined?(x)
-  }
+    "
+  } if defined?(::Table)
   
   
   class ::Bitmap
