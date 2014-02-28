@@ -18,11 +18,11 @@ or copy it somewhere.
 >print Uneval.dump("Hello world") 
 "Hello world"
 >print Uneval.dump([1,2,3])
-"[
-1,
-2,
-3,
-]"
+[
+    1,
+    2,
+    3,
+ ]
 >print Uneval.dump({:a=>3, :b=>5})
 Hash[[
 [
