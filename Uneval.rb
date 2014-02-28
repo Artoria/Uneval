@@ -149,9 +149,9 @@ module Uneval
        set_methods.call(x.const_get(z))
     }
   }
-  set_methods.call(RPG)
-  set_methods.call(Font)
-  set_methods.call(Viewport)
+  set_methods.call(RPG) if defined?(RPG)
+  set_methods.call(Font) if defined?(Font)
+  set_methods.call(Viewport) if defined?(Viewport)
   
   class ::Method
     include MethodLike
@@ -166,28 +166,28 @@ module Uneval
     def ctorparams
       [:red, :green, :blue, :alpha]
     end
-  end
+  end if defined?(Color)
   
   class ::Tone
     include Uneval::Construct
     def ctorparams
       [:red, :green, :blue, :gray]
     end
-  end
+  end if defined?(Tone)
   
   class ::Rect
     include Uneval::Construct
     def ctorparams
       [:x, :y, :width, :height]
     end
-  end
+  end if defined?(Rect)
   
   class RPG::EventCommand
     include Uneval::Construct
     def ctorparams
       [:code, :indent, :parameters]
     end
-  end
+  end if defined?(RPG::EventCommand)
   
   [::Table].each{|x|
      x.class_eval "
@@ -198,7 +198,7 @@ module Uneval
        def self.from_clob(text)
          Marshal.load(text.unpack('M').first)
        end
-    "
+    " if defined?(x)
   }
   
   
@@ -218,7 +218,7 @@ module Uneval
       x.font = font
       x
     end
-  end
+  end if defined?(::Bitmap)
   
 end
 
